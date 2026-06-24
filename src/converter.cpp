@@ -59,17 +59,13 @@ bool isValidValueForChoice(int choice, double value) {
     // 1. Invalid menu choices should return false.
     // 2. Length and weight conversions should reject negative values.
     // 3. Temperature conversions should allow negative values.
-    if(choice >= INCHES_TO_CENTIMETERS && choice <= KILOGRAMS_TO_POUNDS) {
-        if(value >= 0) {
-            return true;
-        }
-    }
-    else if(choice == FAHRENHEIT_TO_CELSIUS || choice == CELSIUS_TO_FAHRENHEIT) {
-        return true;
-    }
-    else {
+    if(!isValidMenuChoice(choice)) {
         return false;
     }
+    if(requiresNonNegativeValue(choice) && value < 0) {
+        return false;
+    }
+    return true;
 }
 
 void printMenu() {
