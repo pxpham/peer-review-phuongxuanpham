@@ -4,37 +4,30 @@
 using namespace std;
 
 double inchesToCentimeters(double inches) {
-    // return inches converted to centimeters.
     return inches * CENTIMETERS_PER_INCH;
 }
 
 double centimetersToInches(double centimeters) {
-    // return centimeters converted to inches.
     return centimeters / CENTIMETERS_PER_INCH;
 }
 
 double poundsToKilograms(double pounds) {
-    // return pounds converted to kilograms.
     return pounds / POUNDS_PER_KILOGRAM;
 }
 
 double kilogramsToPounds(double kilograms) {
-    // return kilograms converted to pounds.
     return kilograms * POUNDS_PER_KILOGRAM;
 }
 
 double fahrenheitToCelsius(double fahrenheit) {
-    // return Fahrenheit converted to Celsius.
     return (fahrenheit - 32) * 5 / 9;
 }
 
 double celsiusToFahrenheit(double celsius) {
-    // return Celsius converted to Fahrenheit.
     return (celsius * 9 / 5) + 32;
 }
 
 bool isValidMenuChoice(int choice) {
-    // return true when choice is between EXIT_CHOICE and CELSIUS_TO_FAHRENHEIT.
     if(choice >= EXIT_CHOICE && choice <= CELSIUS_TO_FAHRENHEIT) {
         return true;
     }
@@ -44,9 +37,6 @@ bool isValidMenuChoice(int choice) {
 }
 
 bool requiresNonNegativeValue(int choice) {
-    // Length and weight conversions cannot use negative values.
-    // Temperature conversions may use negative values.
-    // return true for choices 1 through 4.
     if(choice >= INCHES_TO_CENTIMETERS && choice <= KILOGRAMS_TO_POUNDS) {
         return true;
     }
@@ -55,10 +45,7 @@ bool requiresNonNegativeValue(int choice) {
     }
 }
 
-bool isValidValueForChoice(int choice, double value) {
-    // 1. Invalid menu choices should return false.
-    // 2. Length and weight conversions should reject negative values.
-    // 3. Temperature conversions should allow negative values.
+bool isValidValueForChoice(int choice, double value) {git push origin peer-review-phuongxuanpham
     if(!isValidMenuChoice(choice)) {
         return false;
     }
